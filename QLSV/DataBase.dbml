@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLSV" Class="DataBaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-J09L7R3;Initial Catalog=QLSV;Integrated Security=True;Trust Server Certificate=True" SettingsObjectName="QLSV.Properties.Settings" SettingsPropertyName="QLSVConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tbl_lopquanly" Member="tbl_lopquanlies">
+    <Type Name="tbl_lopquanly">
+      <Column Name="lqlma" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="lqlten" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="lqlkhoahoc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tbl_lopquanly_tbl_sinhvien" Member="tbl_sinhviens" ThisKey="lqlma" OtherKey="lqlma" Type="tbl_sinhvien" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_taikhoan" Member="tbl_taikhoans">
+    <Type Name="tbl_taikhoan">
+      <Column Name="tktkhoan" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="tkmatkhau" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="nqma" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tbl_nhomquyen_tbl_taikhoan" Member="tbl_nhomquyen" ThisKey="nqma" OtherKey="nqma" Type="tbl_nhomquyen" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_nhomquyen" Member="tbl_nhomquyens">
+    <Type Name="tbl_nhomquyen">
+      <Column Name="nqma" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nqten" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="nqmota" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Association Name="tbl_nhomquyen_tbl_taikhoan" Member="tbl_taikhoans" ThisKey="nqma" OtherKey="nqma" Type="tbl_taikhoan" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_sinhvien" Member="tbl_sinhviens">
+    <Type Name="tbl_sinhvien">
+      <Column Name="svma" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="svten" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="svngaysinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="svgioitinh" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="svquequan" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="lqlma" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tbl_lopquanly_tbl_sinhvien" Member="tbl_lopquanly" ThisKey="lqlma" OtherKey="lqlma" Type="tbl_lopquanly" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
