@@ -19,6 +19,9 @@ namespace QLSV.Forms
 
         private void button3_Click(object sender, EventArgs e)
         {
+            FormQLSV f = new FormQLSV();
+            f.Show();
+            this.Hide();
 
         }
 
@@ -31,5 +34,6 @@ namespace QLSV.Forms
         {
 
         }
+        
     }
 }
