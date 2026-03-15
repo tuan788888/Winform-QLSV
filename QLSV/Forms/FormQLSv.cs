@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,133 +15,14 @@ namespace QLSV.Forms
         public FormQLSV()
         {
             InitializeComponent();
-            LoadData(); // ✅ Thêm dòng này
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
+            LoadData();
         }
 
         private void FormQLSv_Load(object sender, EventArgs e)
         {
-
+            LoadData();
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-       
-        private void FormQLSV_Load(object sender, EventArgs e)
-        {
-            LoadData(); // Thêm dòng này
-        }
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
         public void LoadData()
         {
             try
@@ -164,9 +44,20 @@ namespace QLSV.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: " + ex.Message); // Sẽ hiện lỗi cụ thể
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
+
+        private void ClearForm()
+        {
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "";
+            textBox6.Text = "";
+        }
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -180,8 +71,9 @@ namespace QLSV.Forms
                 textBox6.Text = row.Cells["lqlma"].Value?.ToString();
             }
         }
+
         // ============ THÊM ============
-        private void btnThem_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             try
             {
@@ -208,7 +100,7 @@ namespace QLSV.Forms
         }
 
         // ============ SỬA ============
-        private void btnSua_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             try
             {
@@ -243,7 +135,7 @@ namespace QLSV.Forms
         }
 
         // ============ XÓA ============
-        private void btnXoa_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
             try
             {
@@ -284,12 +176,19 @@ namespace QLSV.Forms
             }
         }
 
+        // ============ TẢI LẠI ============
+        private void button4_Click(object sender, EventArgs e)
+        {
+            LoadData();
+            ClearForm();
+        }
+
         // ============ TÌM KIẾM ============
-        private void btnTim_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)
         {
             try
             {
-                string keyword = textBox1.Text.Trim().ToLower();
+                string keyword = textBox7.Text.Trim().ToLower();
 
                 using (DataBaseDataContext db = new DataBaseDataContext())
                 {
@@ -318,23 +217,31 @@ namespace QLSV.Forms
             }
         }
 
-        // ============ QUAY LẠI (load lại toàn bộ) ============
-        private void btnQuay_Click(object sender, EventArgs e)
+        // ============ QUAY LẠI ============
+        private void button6_Click(object sender, EventArgs e)
         {
             LoadData();
             ClearForm();
-            textBox1.Text = "";
+            textBox7.Text = "";
         }
 
-        // ============ HÀM PHỤ: XÓA FORM ============
-        private void ClearForm()
-        {
-            textBox1.Text = "";
-            textBox2.Text = "";
-            textBox3.Text = "";
-            textBox4.Text = "";
-            textBox5.Text = "";
-            textBox6.Text = "";
-        }
+        // ====== CÁC HÀM THỪA GIỮ LẠI ĐỂ KHÔNG LỖI DESIGNER ======
+        private void label1_Click(object sender, EventArgs e) { }
+        private void label2_Click(object sender, EventArgs e) { }
+        private void label3_Click(object sender, EventArgs e) { }
+        private void label4_Click(object sender, EventArgs e) { }
+        private void label5_Click(object sender, EventArgs e) { }
+        private void label6_Click(object sender, EventArgs e) { }
+        private void label7_Click(object sender, EventArgs e) { }
+        private void label8_Click(object sender, EventArgs e) { }
+        private void textBox1_TextChanged(object sender, EventArgs e) { }
+        private void textBox2_TextChanged(object sender, EventArgs e) { }
+        private void textBox3_TextChanged(object sender, EventArgs e) { }
+        private void textBox4_TextChanged(object sender, EventArgs e) { }
+        private void textBox5_TextChanged(object sender, EventArgs e) { }
+        private void textBox6_TextChanged(object sender, EventArgs e) { }
+        private void textBox7_TextChanged(object sender, EventArgs e) { }
+        private void panel1_Paint(object sender, PaintEventArgs e) { }
+        private void panel2_Paint(object sender, PaintEventArgs e) { }
     }
 }
