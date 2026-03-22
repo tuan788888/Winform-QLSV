@@ -59,6 +59,12 @@
     <Compile Include="Forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormQLL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormQLL.Designer.cs">
+      <DependentUpon>FormQLL.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormQLSV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormQLL.resx">
+      <DependentUpon>FormQLL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormQLSV.resx">
       <DependentUpon>FormQLSV.cs</DependentUpon>

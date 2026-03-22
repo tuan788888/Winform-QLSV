@@ -52,6 +52,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button7 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -307,12 +308,24 @@
             this.panel2.TabIndex = 23;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.Red;
+            this.button7.Location = new System.Drawing.Point(290, 408);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(38, 40);
+            this.button7.TabIndex = 24;
+            this.button7.Text = "X";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // FormQLSV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(802, 450);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
@@ -374,5 +387,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button7;
     }
 }

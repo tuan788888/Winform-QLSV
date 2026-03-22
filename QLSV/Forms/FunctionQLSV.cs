@@ -27,6 +27,9 @@ namespace QLSV.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
+            FormQLL f = new FormQLL();
+            f.Show();
+            this.Hide();
 
         }
 
@@ -34,6 +37,12 @@ namespace QLSV.Forms
         {
 
         }
-        
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form1 f = new  Form1();
+            f.Show();
+            this.Hide();
+        }
     }
 }
